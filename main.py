@@ -2,39 +2,10 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 
-refresh_token = ""
 
-headers = {
-    'accept': '*/*',
-    'accept-language': 'en-US,en;q=0.9',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://app.oodapro.io',
-    'priority': 'u=1, i',
-    'referer': 'https://app.oodapro.io/',
-    'sec-ch-ua': '"Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Linux"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'cross-site',
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
-    'x-client-data': 'CJO2yQEIpbbJAQipncoBCLD0ygEIkqHLAQiKo8sBCJv+zAEI0pjNAQiHoM0BCN3XzgEI+dfOAQjb2s4BCNTbzgE=',
-    'x-client-version': 'Chrome/JsCore/9.15.0/FirebaseCore-web',
-    'x-firebase-gmpid': '1:439472444885:android:c48022009a58ffc7',
-}
+with open("token.txt", "r") as file:
+    token = str(file.read()).strip()
 
-params = {
-    'key': 'AIzaSyB_w3vXmsI7WeQtrIOkjR6xTRVN5uOieiE',
-}
-
-data = {
-    'grant_type': 'refresh_token',
-    'refresh_token': refresh_token,
-}
-
-response = requests.post('https://securetoken.googleapis.com/v1/token', params=params, headers=headers, data=data)
-
-token = response.json().get("id_token")
 
 headers = {
     'accept': 'application/json, text/plain, */*',

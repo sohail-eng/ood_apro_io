@@ -22,7 +22,18 @@ This Python script scrapes email interaction data from LeadConnector, retrieving
 pip install -r requirements.txt
 ```
 
-2. Replace `refresh_token` with a valid authentication token
+create `token.txt` file and paste the content from the below info
+2. Credentials
+> Go to email page of the website
+> right click and click on `inspect`
+> click on `network`
+> filter by `token` and click on the last api
+> click on `Headers`
+> Scroll down and copy `token-id`'s value
+> paste into `token.txt` file.
+> please witch the below video for better understand
+
+[Click here to watch the demo](./get_token.webm)
 
 ```python
 refresh_token = ""
